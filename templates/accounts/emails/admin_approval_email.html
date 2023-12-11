@@ -1,0 +1,11 @@
+{% autoescape off %}
+    
+    Hi {{ user.first_name }},
+    
+    {% if is_approved %}
+        Your restaurant has been approved.
+    {% else %}
+        Your restaurant hasn`t been approved.
+    {% endif %}
+    
+{% endautoescape %}
