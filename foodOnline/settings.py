@@ -148,4 +148,4 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'foodOnline Marketplace <6149984@stud.nau.edu.ua>'
 
-GOOGLE_API_KEY = 'AIzaSyDiL1KrojHhWmoiDn4D5yzoKDvygPly0aM'
+GOOGLE_API_KEY = config('GOOGLE_API_KEY')
