@@ -83,8 +83,8 @@
                                 <h6><i class="icon-restaurant_menu"></i>Categories</h6>
                                 <ul class="menu-list">
                                     {% for category in categories %}
-                                        <li class="active"><a href="#"
-                                                              class="menu-category-link"> {{ category.category_name }} </a>
+                                        <li class="active">
+                                            <a href="#" class="menu-category-link"> {{ category.category_name }} </a>
                                         </li>
                                     {% endfor %}
                                 </ul>
@@ -94,9 +94,9 @@
                     <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
                         <div class="tabs-holder horizontal">
                             <ul class="stickynav-tabs nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="#home"><i
-                                        class="icon- icon-room_service"></i>Menu</a></li>
-
+                                <li class="active">
+                                    <a data-toggle="tab" href="#home"><i class="icon- icon-room_service"></i>Menu</a>
+                                </li>
                             </ul>
                             <div class="tab-content">
                                 <div id="home" class="tab-pane in active">
@@ -119,15 +119,18 @@
                                                             </div>
                                                             <div class="price-holder">
                                                                 <span class="price">${{ food.price }}</span>
-                                                                <a href="#" class="restaurant-add-menu-btn"><i
-                                                                        class="icon-plus4 text-color"></i></a>
-                                                                <span id="add-menu-loader-10"></span>
+                                                                <a href="#" class="decrease_cart" style="margin-right: 20px;" data-id="{{ food.id }}" data-url="{% url 'decrease-cart' food.id %}"><i class="icon-minus text-color"></i></a>
+                                                                <label id="qty-{{ food.id }}">0</label>
+                                                                <a href="#" class="add_to_cart" data-id="{{ food.id }}" data-url="{% url 'add-to-cart' food.id %}"><i class="icon-plus4 text-color"></i></a>
                                                             </div>
                                                         </li>
                                                     {% endfor %}
                                                 </ul>
                                             {% endfor %}
                                         </div>
+                                        {% for item in cart_items %}
+                                            <span id="qty-{{ item.fooditem.id }}" class="item_qty d-none" data-qty="{{ item.quantity }}">{{ item.quantity }}</span>
+                                        {% endfor %}
                                     </div>
                                 </div>
                             </div>
